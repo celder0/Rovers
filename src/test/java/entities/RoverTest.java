@@ -174,7 +174,7 @@ class RoverTest {
     void roverTurnLeftFacesWestWhenStartingOffAsNorth(){
         Rover rover = new Rover();
         rover.setHeading(Directions.N);
-        rover.turnLeft();
+        rover.followInstructions("L");
         assertEquals(Directions.W, rover.getHeading());
     }
 
@@ -182,7 +182,7 @@ class RoverTest {
     void roverTurnLeftFacesSouthWhenStartingOffAsWest(){
         Rover rover = new Rover();
         rover.setHeading(Directions.W);
-        rover.turnLeft();
+        rover.followInstructions("L");
         assertEquals(Directions.S, rover.getHeading());
     }
 
@@ -190,7 +190,7 @@ class RoverTest {
     void roverTurnLeftFacesEastWhenStartingOffAsSouth(){
         Rover rover = new Rover();
         rover.setHeading(Directions.S);
-        rover.turnLeft();
+        rover.followInstructions("L");
         assertEquals(Directions.E, rover.getHeading());
     }
 
@@ -198,7 +198,7 @@ class RoverTest {
     void roverTurnLeftFacesNorthWhenStartingOffAsEast(){
         Rover rover = new Rover();
         rover.setHeading(Directions.E);
-        rover.turnLeft();
+        rover.followInstructions("L");
         assertEquals(Directions.N, rover.getHeading());
     }
 }

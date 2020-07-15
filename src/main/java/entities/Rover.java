@@ -1,6 +1,7 @@
 package entities;
 
 import enums.Directions;
+import enums.Instruction;
 import exceptions.InvalidPositionException;
 
 import java.util.Objects;
@@ -171,7 +172,7 @@ public class Rover {
         }
     }
 
-    public void turnLeft() {
+    private void turnLeft() {
         switch (heading) {
             case N:
                 heading = Directions.W;
@@ -184,6 +185,15 @@ public class Rover {
                 break;
             case E:
                 heading = Directions.N;
+                break;
+        }
+    }
+
+    public void followInstructions(String instructions) {
+        Instruction instruction = Instruction.valueOf(instructions);
+        switch (instruction) {
+            case L:
+                turnLeft();
                 break;
         }
     }
