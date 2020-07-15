@@ -16,8 +16,12 @@ public class Rover {
         loadY(roverSplit[1]);
     }
 
-    private void loadY(String yString) {
-        y = Integer.parseInt(yString);
+    private void loadY(String yString) throws InvalidPositionException {
+        try {
+            y = Integer.parseInt(yString);
+        } catch (NumberFormatException e) {
+            throw new InvalidPositionException("y position must be an integer", e);
+        }
     }
 
     private void loadX(String xString) throws InvalidPositionException {

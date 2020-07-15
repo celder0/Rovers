@@ -27,4 +27,9 @@ class RoverTest {
         Rover rover = new Rover("1 2 E", new Plateau(1, 2));
         assertEquals(2, rover.getY());
     }
+
+    @Test
+    void roverConstructorWithRoverConfigThrowsErrorWhenYPositionIsNonInteger() {
+        assertThrows(InvalidPositionException.class, () -> {new Rover("1 Y E", new Plateau(1, 2));});
+    }
 }
