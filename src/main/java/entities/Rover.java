@@ -14,6 +14,11 @@ public class Rover {
         String[] roverSplit = roverConfig.split(" ");
         loadX(roverSplit[0]);
         loadY(roverSplit[1]);
+        loadHeading(roverSplit[2]);
+    }
+
+    private void loadHeading(String headingString) {
+        heading = Directions.valueOf(headingString);
     }
 
     private void loadY(String yString) throws InvalidPositionException {
@@ -60,5 +65,9 @@ public class Rover {
 
     public int getY() {
         return y;
+    }
+
+    public Directions getHeading() {
+        return heading;
     }
 }

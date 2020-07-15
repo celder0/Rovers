@@ -1,5 +1,6 @@
 package entities;
 
+import enums.Directions;
 import exceptions.InvalidPositionException;
 import org.junit.jupiter.api.Test;
 
@@ -36,5 +37,11 @@ class RoverTest {
     @Test
     void roverConstructorWithRoverConfigThrowsErrorWhenYPositionIsOutsideOfPlateau() {
         assertThrows(InvalidPositionException.class, () -> {new Rover("1 3 E", new Plateau(1,2));});
+    }
+
+    @Test
+    void roverConstructorWithRoverConfigSetsHeadingBasedOnThirdElement() throws Exception {
+        Rover rover = new Rover("1 2 E", new Plateau(1, 2));
+        assertEquals(Directions.E, rover.getHeading());
     }
 }
