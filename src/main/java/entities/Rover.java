@@ -131,7 +131,9 @@ public class Rover {
     }
 
     private void moveSouth() {
-        y--;
+        if(y > 0){
+            y--;
+        }
     }
 
     private void moveWest() {
