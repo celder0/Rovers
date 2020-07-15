@@ -25,7 +25,7 @@ class ApplicationTest {
     }
 
     @Test
-    void applicationLoadsRoverFromConfigFile() throws Exception {
+    void applicationLoadsRoverAndExecutesInstructionsFromConfigFile() throws Exception {
         URL configResource = this.getClass().getResource("testConfig.txt");
         File configFile = Paths.get(configResource.toURI()).toFile();
         Application application = new Application(configFile.getAbsolutePath());
@@ -37,7 +37,7 @@ class ApplicationTest {
         expectedPlateau.setLength(4);
         expectedRover.setX(1);
         expectedRover.setY(3);
-        expectedRover.setHeading(Directions.E);
+        expectedRover.setHeading(Directions.N);
         expectedRover.setPlateau(expectedPlateau);
         assertEquals(expectedRover, rover);
     }

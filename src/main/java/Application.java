@@ -24,6 +24,8 @@ public class Application {
             plateau = new Plateau(plateauConfig);
             String roverConfig = scanner.nextLine();
             rover = new Rover(roverConfig, plateau);
+            String roverInstructions = scanner.nextLine();
+            rover.followInstructions(roverInstructions);
         } catch (FileNotFoundException|InvalidDimensionsException| InvalidPositionException e) {
             throw new ApplicationLoadException(e);
         }
