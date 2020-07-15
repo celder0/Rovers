@@ -6,15 +6,22 @@ import exceptions.InvalidPositionException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Application {
+    private PrintStream output = System.out;
     private String configPath;
     private Plateau plateau;
     private Rover rover;
 
     public Application(String configPath) {
         this.configPath = configPath;
+    }
+
+    public Application(String configPath, PrintStream output) {
+        this(configPath);
+        this.output = output;
     }
 
     public void load() throws ApplicationLoadException {
@@ -26,6 +33,7 @@ public class Application {
             rover = new Rover(roverConfig, plateau);
             String roverInstructions = scanner.nextLine();
             rover.followInstructions(roverInstructions);
+            output.print(String.format("%d %d %s", rover.getX(), rover.getY(), rover.getHeading()));
         } catch (FileNotFoundException|InvalidDimensionsException| InvalidPositionException e) {
             throw new ApplicationLoadException(e);
         }
