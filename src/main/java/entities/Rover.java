@@ -122,7 +122,14 @@ public class Rover {
             case E:
                 moveEast();
                 break;
+            case W:
+                moveWest();
+                break;
         }
+    }
+
+    private void moveWest() {
+        x--;
     }
 
     private void moveNorth() {

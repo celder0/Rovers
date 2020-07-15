@@ -93,4 +93,11 @@ class RoverTest {
         assertEquals(0, rover.getX());
         assertEquals(0, rover.getY());
     }
+
+    @Test
+    void roverMoveOneNegativeXWhenFacingWest(){
+        Rover rover = new Rover(1,0, Directions.W, new Plateau(1, 1));
+        rover.move();
+        assertEquals(0, rover.getX());
+    }
 }
