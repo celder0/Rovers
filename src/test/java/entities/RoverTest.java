@@ -107,4 +107,12 @@ class RoverTest {
         rover.move();
         assertEquals(0, rover.getY());
     }
+
+    @Test
+    void roverDoesNotMoveWhenFacingWestAndAtPlateausLowerXBorder(){
+        Rover rover = new Rover(0,0, Directions.W, new Plateau(0,0));
+        rover.move();
+        assertEquals(0, rover.getX());
+        assertEquals(0, rover.getY());
+    }
 }
