@@ -1,15 +1,20 @@
 package entities;
 
 import enums.Directions;
+import exceptions.InvalidPositionException;
 
 public class Rover {
     private int x;
     private int y;
     private Directions heading;
 
-    public Rover(String roverConfig) {
+    public Rover(String roverConfig) throws InvalidPositionException {
         String[] roverSplit = roverConfig.split(" ");
-        x = Integer.parseInt(roverSplit[0]);
+        try {
+            x = Integer.parseInt(roverSplit[0]);
+        } catch (NumberFormatException e){
+            throw new InvalidPositionException("x position must be an integer", e);
+        }
     }
 
     public Rover() {
