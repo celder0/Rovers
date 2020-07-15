@@ -153,4 +153,8 @@ public class Rover {
             x++;
         }
     }
+
+    public void turnRight() {
+        heading = Directions.E;
+    }
 }

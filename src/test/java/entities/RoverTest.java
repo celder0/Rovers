@@ -137,4 +137,12 @@ class RoverTest {
         assertEquals(0, rover.getX());
         assertEquals(0, rover.getY());
     }
+
+    @Test
+    void roverTurnRightFacesEastWhenStartingOffAsNorth(){
+        Rover rover = new Rover();
+        rover.setHeading(Directions.N);
+        rover.turnRight();
+        assertEquals(Directions.E, rover.getHeading());
+    }
 }
