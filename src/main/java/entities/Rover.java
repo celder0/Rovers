@@ -155,6 +155,13 @@ public class Rover {
     }
 
     public void turnRight() {
-        heading = Directions.E;
+        switch (heading) {
+            case N:
+                heading = Directions.E;
+                break;
+            case E:
+                heading = Directions.S;
+                break;
+        }
     }
 }
