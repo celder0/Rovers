@@ -1,5 +1,5 @@
 package enums;
 
 public enum Directions {
-    N,W,E;
+    N,S,E,W
 }

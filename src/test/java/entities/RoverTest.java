@@ -115,4 +115,11 @@ class RoverTest {
         assertEquals(0, rover.getX());
         assertEquals(0, rover.getY());
     }
+
+    @Test
+    void roverMoveOneNegativeYWhenFacingSouth(){
+        Rover rover = new Rover(1,1, Directions.S, new Plateau(1, 1));
+        rover.move();
+        assertEquals(0, rover.getY());
+    }
 }
