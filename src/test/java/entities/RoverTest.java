@@ -32,4 +32,9 @@ class RoverTest {
     void roverConstructorWithRoverConfigThrowsErrorWhenYPositionIsNonInteger() {
         assertThrows(InvalidPositionException.class, () -> {new Rover("1 Y E", new Plateau(1, 2));});
     }
+
+    @Test
+    void roverConstructorWithRoverConfigThrowsErrorWhenYPositionIsOutsideOfPlateau() {
+        assertThrows(InvalidPositionException.class, () -> {new Rover("1 3 E", new Plateau(1,2));});
+    }
 }

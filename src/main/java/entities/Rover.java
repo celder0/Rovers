@@ -22,6 +22,9 @@ public class Rover {
         } catch (NumberFormatException e) {
             throw new InvalidPositionException("y position must be an integer", e);
         }
+        if(y > plateau.getLength()){
+            throw new InvalidPositionException("y cannot be outside of plateau");
+        }
     }
 
     private void loadX(String xString) throws InvalidPositionException {
