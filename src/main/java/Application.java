@@ -1,5 +1,7 @@
 import entities.Plateau;
+import entities.Rover;
 import exceptions.ApplicationLoadException;
+import exceptions.InvalidDimensionsException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,7 +20,7 @@ public class Application {
         try(Scanner scanner = new Scanner(configFile)){
             String plateauConfig = scanner.nextLine();
             plateau = new Plateau(plateauConfig);
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException|InvalidDimensionsException e) {
             throw new ApplicationLoadException(e);
         }
     }

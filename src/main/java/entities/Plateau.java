@@ -1,14 +1,20 @@
 package entities;
 
+import exceptions.InvalidDimensionsException;
+
 import java.util.Objects;
 
 public class Plateau {
     private int width;
     private int length;
 
-    public Plateau(String plateauConfig) {
+    public Plateau(String plateauConfig) throws InvalidDimensionsException {
         String[] plateauSplit = plateauConfig.split(" ");
-        width = Integer.parseInt(plateauSplit[0]);
+        try {
+            width = Integer.parseInt(plateauSplit[0]);
+        } catch (NumberFormatException e){
+            throw new InvalidDimensionsException("Width must be integer", e);
+        }
         length = Integer.parseInt(plateauSplit[1]);
     }
 

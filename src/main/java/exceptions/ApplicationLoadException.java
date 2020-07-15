@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 public class ApplicationLoadException extends Exception {
 
-    public ApplicationLoadException(FileNotFoundException e) {
+    public ApplicationLoadException(Exception e) {
         super(e);
     }
 }
