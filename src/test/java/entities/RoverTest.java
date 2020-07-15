@@ -122,4 +122,11 @@ class RoverTest {
         rover.move();
         assertEquals(0, rover.getY());
     }
+
+    @Test
+    void roverMoveDoesNotChangeXWhenFacingSouth(){
+        Rover rover = new Rover(1,0, Directions.S, new Plateau(1, 1));
+        rover.move();
+        assertEquals(1, rover.getX());
+    }
 }
