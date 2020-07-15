@@ -17,8 +17,12 @@ public class Rover {
         loadHeading(roverSplit[2]);
     }
 
-    private void loadHeading(String headingString) {
-        heading = Directions.valueOf(headingString);
+    private void loadHeading(String headingString) throws InvalidPositionException {
+        try {
+            heading = Directions.valueOf(headingString);
+        } catch (IllegalArgumentException e) {
+            throw new InvalidPositionException("Heading must be N,S,E,W", e);
+        }
     }
 
     private void loadY(String yString) throws InvalidPositionException {

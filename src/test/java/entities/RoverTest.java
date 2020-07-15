@@ -44,4 +44,9 @@ class RoverTest {
         Rover rover = new Rover("1 2 E", new Plateau(1, 2));
         assertEquals(Directions.E, rover.getHeading());
     }
+
+    @Test
+    void roverConstructorWithRoverConfigThrowsErrorWhenHeadingIsNotValid(){
+        assertThrows(InvalidPositionException.class, () -> {new Rover("1 1 R", new Plateau(1,2));});
+    }
 }
