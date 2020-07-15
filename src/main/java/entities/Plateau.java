@@ -15,7 +15,11 @@ public class Plateau {
         } catch (NumberFormatException e){
             throw new InvalidDimensionsException("Width must be integer", e);
         }
-        length = Integer.parseInt(plateauSplit[1]);
+        try {
+            length = Integer.parseInt(plateauSplit[1]);
+        } catch (NumberFormatException e){
+            throw new InvalidDimensionsException("Length must be integer", e);
+        }
     }
 
     public Plateau() {

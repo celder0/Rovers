@@ -22,4 +22,9 @@ class PlateauTest {
     void plateauConstructorWithConfigThrowsErrorIfWidthIsNonInteger() {
        assertThrows(InvalidDimensionsException.class, () -> {new Plateau("L 1");});
     }
+
+    @Test
+    void plateauConstructorWithConfigThrowsErrorIfLengthIsNonInteger() {
+        assertThrows(InvalidDimensionsException.class, () -> {new Plateau("1 W");});
+    }
 }
