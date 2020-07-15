@@ -201,4 +201,12 @@ class RoverTest {
         rover.followInstructions("L");
         assertEquals(Directions.N, rover.getHeading());
     }
+
+    @Test
+    void roverFollowsMultipleInstructions(){
+        Rover rover = new Rover(0,0,Directions.E, new Plateau(1,1));
+        rover.followInstructions("LMRM");
+        assertEquals(1, rover.getX());
+        assertEquals(1, rover.getY());
+    }
 }

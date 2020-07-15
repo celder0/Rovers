@@ -4,6 +4,9 @@ import enums.Directions;
 import enums.Instruction;
 import exceptions.InvalidPositionException;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Rover {
@@ -190,7 +193,14 @@ public class Rover {
     }
 
     public void followInstructions(String instructions) {
-        Instruction instruction = Instruction.valueOf(instructions);
+        List<String> instructionList = Arrays.asList(instructions.split(""));
+        for (String instructionString :instructionList) {
+            followIndividualInstruction(instructionString);
+        }
+    }
+
+    private void followIndividualInstruction(String instructionString) {
+        Instruction instruction = Instruction.valueOf(instructionString);
         switch (instruction) {
             case L:
                 turnLeft();
