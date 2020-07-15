@@ -1,5 +1,5 @@
 package enums;
 
 public enum Instruction {
-    L, R
+    L, R, M
 }

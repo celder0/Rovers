@@ -198,6 +198,9 @@ public class Rover {
             case R:
                 turnRight();
                 break;
+            case M:
+                move();
+                break;
         }
     }
 }

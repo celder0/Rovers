@@ -53,21 +53,21 @@ class RoverTest {
     @Test
     void roverMoveOnePositiveXWhenFacingEast(){
         Rover rover = new Rover(0,0, Directions.E, new Plateau(1, 1));
-        rover.move();
+        rover.followInstructions("M");
         assertEquals(1, rover.getX());
     }
 
     @Test
     void roverMoveDoesNotChangeYWhenFacingEast(){
         Rover rover = new Rover(0,0, Directions.E, new Plateau(1, 1));
-        rover.move();
+        rover.followInstructions("M");
         assertEquals(0, rover.getY());
     }
 
     @Test
     void roverDoesNotMoveWhenFacingEastAndAtPlateausUpperXBorder(){
         Rover rover = new Rover(0,0, Directions.E, new Plateau(0,0));
-        rover.move();
+        rover.followInstructions("M");
         assertEquals(0, rover.getX());
         assertEquals(0, rover.getY());
     }
@@ -75,21 +75,21 @@ class RoverTest {
     @Test
     void roverMoveOnePositiveYWhenFacingNorth(){
         Rover rover = new Rover(0,0, Directions.N, new Plateau(1, 1));
-        rover.move();
+        rover.followInstructions("M");
         assertEquals(1, rover.getY());
     }
 
     @Test
     void roverMoveDoesNotChangeXWhenFacingNorth(){
         Rover rover = new Rover(0,0, Directions.N, new Plateau(1, 1));
-        rover.move();
+        rover.followInstructions("M");
         assertEquals(0, rover.getX());
     }
 
     @Test
     void roverDoesNotMoveWhenFacingNorthAndAtPlateausUpperYBorder(){
         Rover rover = new Rover(0,0, Directions.N, new Plateau(0,0));
-        rover.move();
+        rover.followInstructions("M");
         assertEquals(0, rover.getX());
         assertEquals(0, rover.getY());
     }
@@ -97,21 +97,21 @@ class RoverTest {
     @Test
     void roverMoveOneNegativeXWhenFacingWest(){
         Rover rover = new Rover(1,0, Directions.W, new Plateau(1, 1));
-        rover.move();
+        rover.followInstructions("M");
         assertEquals(0, rover.getX());
     }
 
     @Test
     void roverMoveDoesNotChangeYWhenFacingWest(){
         Rover rover = new Rover(0,0, Directions.W, new Plateau(1, 1));
-        rover.move();
+        rover.followInstructions("M");
         assertEquals(0, rover.getY());
     }
 
     @Test
     void roverDoesNotMoveWhenFacingWestAndAtPlateausLowerXBorder(){
         Rover rover = new Rover(0,0, Directions.W, new Plateau(0,0));
-        rover.move();
+        rover.followInstructions("M");
         assertEquals(0, rover.getX());
         assertEquals(0, rover.getY());
     }
@@ -119,21 +119,21 @@ class RoverTest {
     @Test
     void roverMoveOneNegativeYWhenFacingSouth(){
         Rover rover = new Rover(1,1, Directions.S, new Plateau(1, 1));
-        rover.move();
+        rover.followInstructions("M");
         assertEquals(0, rover.getY());
     }
 
     @Test
     void roverMoveDoesNotChangeXWhenFacingSouth(){
         Rover rover = new Rover(1,0, Directions.S, new Plateau(1, 1));
-        rover.move();
+        rover.followInstructions("M");
         assertEquals(1, rover.getX());
     }
 
     @Test
     void roverDoesNotMoveWhenFacingSouthAndAtPlateausLowerYBorder(){
         Rover rover = new Rover(0,0, Directions.S, new Plateau(0,0));
-        rover.move();
+        rover.followInstructions("M");
         assertEquals(0, rover.getX());
         assertEquals(0, rover.getY());
     }
