@@ -56,4 +56,11 @@ class RoverTest {
         rover.move();
         assertEquals(1, rover.getX());
     }
+
+    @Test
+    void roverMoveDoesNotChangeYWhenFacingEast(){
+        Rover rover = new Rover(0,0, Directions.E);
+        rover.move();
+        assertEquals(0, rover.getY());
+    }
 }
