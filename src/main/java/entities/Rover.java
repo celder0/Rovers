@@ -19,10 +19,11 @@ public class Rover {
         loadHeading(roverSplit[2]);
     }
 
-    public Rover(int x, int y, Directions heading) {
+    public Rover(int x, int y, Directions heading, Plateau plateau) {
         this.x = x;
         this.y = y;
         this.heading = heading;
+        this.plateau = plateau;
     }
 
     private void loadHeading(String headingString) throws InvalidPositionException {
@@ -114,6 +115,8 @@ public class Rover {
     }
 
     public void move() {
-        x++;
+        if(x < plateau.getWidth()) {
+            x++;
+        }
     }
 }
