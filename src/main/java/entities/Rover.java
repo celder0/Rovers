@@ -117,11 +117,17 @@ public class Rover {
     public void move() {
         switch (heading) {
             case N:
-                y++;
+                moveNorth();
                 break;
             case E:
                 moveEast();
                 break;
+        }
+    }
+
+    private void moveNorth() {
+        if(y < plateau.getLength()){
+            y++;
         }
     }
 

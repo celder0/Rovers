@@ -65,7 +65,7 @@ class RoverTest {
     }
 
     @Test
-    void roverDoesNotMoveWhenFacingEastAndAtPlateausXBorder(){
+    void roverDoesNotMoveWhenFacingEastAndAtPlateausUpperXBorder(){
         Rover rover = new Rover(0,0, Directions.E, new Plateau(0,0));
         rover.move();
         assertEquals(0, rover.getX());
@@ -84,5 +84,13 @@ class RoverTest {
         Rover rover = new Rover(0,0, Directions.N, new Plateau(1, 1));
         rover.move();
         assertEquals(0, rover.getX());
+    }
+
+    @Test
+    void roverDoesNotMoveWhenFacingNorthAndAtPlateausUpperYBorder(){
+        Rover rover = new Rover(0,0, Directions.N, new Plateau(0,0));
+        rover.move();
+        assertEquals(0, rover.getX());
+        assertEquals(0, rover.getY());
     }
 }
