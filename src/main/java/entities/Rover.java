@@ -118,7 +118,14 @@ public class Rover {
         switch (heading) {
             case N:
                 y++;
+                break;
+            case E:
+                moveEast();
+                break;
         }
+    }
+
+    private void moveEast() {
         if(x < plateau.getWidth()) {
             x++;
         }
