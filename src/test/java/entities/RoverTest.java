@@ -49,4 +49,11 @@ class RoverTest {
     void roverConstructorWithRoverConfigThrowsErrorWhenHeadingIsNotValid(){
         assertThrows(InvalidPositionException.class, () -> {new Rover("1 1 R", new Plateau(1,2));});
     }
+
+    @Test
+    void roverMoveOnePositiveXWhenFacingEast(){
+        Rover rover = new Rover(0,0, Directions.E);
+        rover.move();
+        assertEquals(1, rover.getX());
+    }
 }

@@ -19,6 +19,12 @@ public class Rover {
         loadHeading(roverSplit[2]);
     }
 
+    public Rover(int x, int y, Directions heading) {
+        this.x = x;
+        this.y = y;
+        this.heading = heading;
+    }
+
     private void loadHeading(String headingString) throws InvalidPositionException {
         try {
             heading = Directions.valueOf(headingString);
@@ -107,4 +113,7 @@ public class Rover {
                 '}';
     }
 
+    public void move() {
+        x++;
+    }
 }
