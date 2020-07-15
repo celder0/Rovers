@@ -24,18 +24,27 @@ public class Application {
         this.output = output;
     }
 
-    public void load() throws ApplicationLoadException {
+    public void run() throws ApplicationLoadException {
         File configFile = new File(configPath);
         try(Scanner scanner = new Scanner(configFile)){
             String plateauConfig = scanner.nextLine();
             plateau = new Plateau(plateauConfig);
-            String roverConfig = scanner.nextLine();
-            rover = new Rover(roverConfig, plateau);
-            String roverInstructions = scanner.nextLine();
-            rover.followInstructions(roverInstructions);
-            output.print(String.format("%d %d %s", rover.getX(), rover.getY(), rover.getHeading()));
+            while (scanner.hasNextLine()){
+                configureRoverAndRun(scanner);
+            }
         } catch (FileNotFoundException|InvalidDimensionsException| InvalidPositionException e) {
             throw new ApplicationLoadException(e);
+        }
+    }
+
+    private void configureRoverAndRun(Scanner scanner) throws InvalidPositionException {
+        String roverConfig = scanner.nextLine();
+        rover = new Rover(roverConfig, plateau);
+        String roverInstructions = scanner.nextLine();
+        rover.followInstructions(roverInstructions);
+        output.print(String.format("%d %d %s", rover.getX(), rover.getY(), rover.getHeading()));
+        if(scanner.hasNextLine()){
+            output.print("\n");
         }
     }
 
@@ -44,9 +53,5 @@ public class Application {
     }
 
     public static void main(String[] args) {
-    }
-
-    public Rover getRover() {
-        return rover;
     }
 }
