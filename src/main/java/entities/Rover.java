@@ -13,6 +13,11 @@ public class Rover {
         this.plateau = plateau;
         String[] roverSplit = roverConfig.split(" ");
         loadX(roverSplit[0]);
+        loadY(roverSplit[1]);
+    }
+
+    private void loadY(String yString) {
+        y = Integer.parseInt(yString);
     }
 
     private void loadX(String xString) throws InvalidPositionException {
@@ -44,5 +49,9 @@ public class Rover {
 
     public int getX() {
         return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }

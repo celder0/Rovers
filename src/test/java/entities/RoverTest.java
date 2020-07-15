@@ -21,4 +21,10 @@ class RoverTest {
     void roverConstructorWithRoverConfigThrowsErrorWhenXPositionIsOutsideOfPlateau() {
         assertThrows(InvalidPositionException.class, () -> {new Rover("2 1 E", new Plateau(1,2));});
     }
+
+    @Test
+    void roverConstructorWithRoverConfigSetsTheYPositionBasedOnSecondElement() throws Exception {
+        Rover rover = new Rover("1 2 E", new Plateau(1, 2));
+        assertEquals(2, rover.getY());
+    }
 }
