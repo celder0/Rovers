@@ -3,6 +3,8 @@ package entities;
 import enums.Directions;
 import exceptions.InvalidPositionException;
 
+import java.util.Objects;
+
 public class Rover {
     private Plateau plateau;
     private int x;
@@ -63,6 +65,10 @@ public class Rover {
         this.heading = heading;
     }
 
+    public void setPlateau(Plateau plateau) {
+        this.plateau = plateau;
+    }
+
     public int getX() {
         return x;
     }
@@ -74,4 +80,31 @@ public class Rover {
     public Directions getHeading() {
         return heading;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rover rover = (Rover) o;
+        return x == rover.x &&
+                y == rover.y &&
+                Objects.equals(plateau, rover.plateau) &&
+                heading == rover.heading;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(plateau, x, y, heading);
+    }
+
+    @Override
+    public String toString() {
+        return "Rover{" +
+                "plateau=" + plateau +
+                ", x=" + x +
+                ", y=" + y +
+                ", heading=" + heading +
+                '}';
+    }
+
 }

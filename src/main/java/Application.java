@@ -2,6 +2,7 @@ import entities.Plateau;
 import entities.Rover;
 import exceptions.ApplicationLoadException;
 import exceptions.InvalidDimensionsException;
+import exceptions.InvalidPositionException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,6 +11,7 @@ import java.util.Scanner;
 public class Application {
     private String configPath;
     private Plateau plateau;
+    private Rover rover;
 
     public Application(String configPath) {
         this.configPath = configPath;
@@ -20,7 +22,9 @@ public class Application {
         try(Scanner scanner = new Scanner(configFile)){
             String plateauConfig = scanner.nextLine();
             plateau = new Plateau(plateauConfig);
-        } catch (FileNotFoundException|InvalidDimensionsException e) {
+            String roverConfig = scanner.nextLine();
+            rover = new Rover(roverConfig, plateau);
+        } catch (FileNotFoundException|InvalidDimensionsException| InvalidPositionException e) {
             throw new ApplicationLoadException(e);
         }
     }
@@ -30,5 +34,9 @@ public class Application {
     }
 
     public static void main(String[] args) {
+    }
+
+    public Rover getRover() {
+        return rover;
     }
 }
