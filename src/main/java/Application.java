@@ -52,6 +52,8 @@ public class Application {
         return plateau;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ApplicationLoadException {
+        Application application = new Application(args[0]);
+        application.run();
     }
 }
