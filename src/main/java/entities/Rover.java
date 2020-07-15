@@ -170,4 +170,8 @@ public class Rover {
                 break;
         }
     }
+
+    public void turnLeft() {
+        heading = Directions.W;
+    }
 }
