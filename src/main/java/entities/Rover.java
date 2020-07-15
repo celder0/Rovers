@@ -182,6 +182,9 @@ public class Rover {
             case S:
                 heading = Directions.E;
                 break;
+            case E:
+                heading = Directions.N;
+                break;
         }
     }
 }

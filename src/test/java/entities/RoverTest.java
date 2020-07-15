@@ -193,4 +193,12 @@ class RoverTest {
         rover.turnLeft();
         assertEquals(Directions.E, rover.getHeading());
     }
+
+    @Test
+    void roverTurnLeftFacesNorthWhenStartingOffAsEast(){
+        Rover rover = new Rover();
+        rover.setHeading(Directions.E);
+        rover.turnLeft();
+        assertEquals(Directions.N, rover.getHeading());
+    }
 }
