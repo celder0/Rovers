@@ -26,6 +26,11 @@ public class Plateau {
 
     }
 
+    public Plateau(int width, int length) {
+        this.width = width;
+        this.length = length;
+    }
+
     public int getWidth() {
         return width;
     }
